@@ -1,0 +1,9 @@
+﻿body {
+    background-color: lightseagreen
+}
+
+.logo {
+    height: 50px;
+    width: 112px;
+    float: left;
+}

@@ -1,0 +1,41 @@
+﻿body {
+
+
+}
+
+.f {
+    color: blue;
+    margin: 0;
+    padding: 0;
+    font-family: "arial", Times, serif;
+    font-size: 15px;
+}
+
+
+ul#horizontal-list {
+    min-width: 696px;
+    list-style: none;
+    padding-top: 20px;
+}
+
+    ul#horizontal-list li {
+        display: inline;
+    }
+
+#menu-outer {
+    height: 84px;
+    background: url(images/bar-bg.jpg) repeat-x;
+}
+
+.table {
+    display: table; /* Allow the centering to work */
+    margin: 0 auto;
+}
+
+.logo {
+    height: 50px;
+    width: 112px;
+    float: left;
+}
+
+
