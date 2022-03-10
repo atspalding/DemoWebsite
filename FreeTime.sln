@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeTime", "FreeTime\FreeTime.csproj", "{20B4B5A0-0DB5-45D8-BC24-31A72BEE2D33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeTimeWebsite", "FreeTime\FreeTimeWebsite.csproj", "{20B4B5A0-0DB5-45D8-BC24-31A72BEE2D33}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PhytonFreeTime", "PhytonFreeTime\PhytonFreeTime.pyproj", "{9B0F471A-470D-49EF-869C-7983DDE260E8}"
 EndProject

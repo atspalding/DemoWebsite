@@ -591,6 +591,7 @@
     <Content Include="css\Banner.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FreeTime20220113083331 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\FreeTime20220113083331 - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
