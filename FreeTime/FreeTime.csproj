@@ -568,6 +568,7 @@
     <Content Include="UpdatePanelPratice.aspx" />
     <Content Include="VideoPlayeraspx.aspx" />
     <Content Include="WeatherInfo.aspx" />
+    <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
     <Content Include="js\ckeditor_4.5.7_standard\ckeditor\CHANGES.md" />
@@ -627,6 +628,12 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdventureGame.aspx.cs">
