@@ -181,7 +181,7 @@ namespace FreeTime
 
                 //https://stackoverflow.com/questions/18157620/responsive-solution-for-long-urls-that-exceed-the-device-width
                 //newLabel3.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " width='100%'>" + jObject["articles"][t]["url"].ToString() + "</a>";
-                newLabel3.Text = "<div style='word - wrap: break-word;'  max-width='100%' ><a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' width='100%' max-width='100%' word-wrap='break-word'>" + jObject["articles"][t]["url"].ToString() + "</a></div>";
+                newLabel3.Text = "<div style='word-wrap: break-word; max-width:100p% '   ><a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' width='100%' max-width='100%' word-wrap='break-word'>" + jObject["articles"][t]["url"].ToString() + "</a></div>";
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
 
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel3);
