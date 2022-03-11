@@ -59,22 +59,26 @@
 
     <form id="form1" runat="server">
         <!-https://ianlunn.co.uk/articlej7/hover-css-tutorial-introduction/->
-        
-        <asp:Panel ID="NewsPanel" runat="server" max-height="400px">
+        <!--<div class="container" width="100%" max-width="900px"  style="word-wrap: break-word;" >-->
+        <div class="container" width="100%" max-width="900px" >
+        <asp:Panel ID="NewsPanel" runat="server"  max-height="400px" width="100%">
             <!--<asp:Label ID="newslabel" runat="server" Text="newslabel"></asp:Label>-->
-            <div  style='float:left; vertical-align: top; max-width: 900px;' >
+            <div  style='float:left; vertical-align: top; width:100%; max-width: 900px;' >
                 <asp:ScriptManager ID="ScriptManager1" runat="server" />
             <!--<asp:Panel ID="Panel3" runat="server" Width="900px">
             </asp:Panel>-->
                 <!--changed panel1 id to panel 3 for now-->
                 <!--https://ajax.net-tutorials.com/controls/updatepanel-control/-->
                 <!--https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.updatepanel.updatemode?view=netframework-4.7.2-->
-             <asp:UpdatePanel runat="server" id="Panel1" updatemode="Conditional" max-width="900px" >
+             <asp:UpdatePanel runat="server" id="Panel1" updatemode="Conditional" width="100%" max-width="900px" >
 
              </asp:UpdatePanel>
 
             </div>
             </asp:Panel>
+
+
+            </div>
         <!--<asp:Label ID="Label2" runat="server" Text="powered by newsapi.org"></asp:Label>-->
     </form>
 

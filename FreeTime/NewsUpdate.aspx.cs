@@ -55,6 +55,7 @@ namespace FreeTime
             Panel1.ContentTemplateContainer.Controls.Add(newLabel8);
 
             Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
+            Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
             //tried this
             //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl(praticeString));
 
@@ -68,6 +69,7 @@ namespace FreeTime
             Panel1.ContentTemplateContainer.Controls.Add(newLabel7);
 
             Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
+            //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
             Label newLabel6 = new Label();
 
             int t = 0;
@@ -86,7 +88,8 @@ namespace FreeTime
                 //Label newLabel6 = new Label();
                 //Label newLabel7 = new Label();
 
-
+                //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
 
 
                 //newLabel7.Text = "New News Artcles";
@@ -105,7 +108,12 @@ namespace FreeTime
 
                 newLabel.Text = jObject["articles"][t]["title"].ToString();
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel);
-                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
+                //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
+
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
+
+                //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
+
                 Image weatherImage2 = new Image();
                 if (jObject["articles"][t]["urlToImage"].ToString() != "")
                 {
@@ -124,9 +132,16 @@ namespace FreeTime
                 weatherImage2.Width = 300;
                 weatherImage2.Height = 200;
 
+
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
+         
                 Panel1.ContentTemplateContainer.Controls.Add(weatherImage2);
 
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
+
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
+
+                //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
 
 
                 newLabel2.Text =jObject["articles"][t]["description"].ToString();
@@ -159,21 +174,26 @@ namespace FreeTime
                 
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel2);
 
-               // Panel1.ContentTemplateContainer.Controls.Add(newsString);
-               
+                // Panel1.ContentTemplateContainer.Controls.Add(newsString);
 
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
+                //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
 
-                newLabel3.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' >" + jObject["articles"][t]["url"].ToString() + "</a>";
+                //https://stackoverflow.com/questions/18157620/responsive-solution-for-long-urls-that-exceed-the-device-width
+                //newLabel3.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " width='100%'>" + jObject["articles"][t]["url"].ToString() + "</a>";
+                newLabel3.Text = "<div style='word - wrap: break-word;'  max-width='100%' ><a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' width='100%' max-width='100%' word-wrap='break-word'>" + jObject["articles"][t]["url"].ToString() + "</a></div>";
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
 
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel3);
 
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
                 newLabel4.Text = jObject["articles"][t]["publishedAt"].ToString();
+
 
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel4);
 
-                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
+               // Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
                 newLabel5.Text = jObject["articles"][t]["content"].ToString();
 
 
@@ -200,7 +220,8 @@ namespace FreeTime
                 }
 
 
-
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel5);
 
                 Uri uriLink = new Uri(jObject["articles"][t]["url"].ToString());
@@ -222,13 +243,14 @@ namespace FreeTime
 
             }
 
-
-             newLabel6.Text = "powered by newsapi.org";
+            Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
+            newLabel6.Text = "powered by newsapi.org";
                 //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
 
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel6);
 
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
+            Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
 
             //////newslabel.Text = titleNames;
 
