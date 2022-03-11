@@ -77,6 +77,9 @@ namespace FreeTime
             while (t < jObject["articles"].Count())
             {
 
+                ///////////////////////////////////
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<div class='background'  style='background-color:white; border-radius:15px'>"));
+
 
                 string titleName2 = "";
 
@@ -106,7 +109,8 @@ namespace FreeTime
 
 
 
-                newLabel.Text = jObject["articles"][t]["title"].ToString();
+                /////newLabel.Text = jObject["articles"][t]["title"].ToString();
+                newLabel.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' width='100%' max-width='100%' word-wrap='break-word'  color='black' >" + "<p text-decoration-line='underline'>" + jObject["articles"][t]["title"].ToString() + "</p>"+"</a>";
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel);
                 //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
 
@@ -181,13 +185,13 @@ namespace FreeTime
 
                 //https://stackoverflow.com/questions/18157620/responsive-solution-for-long-urls-that-exceed-the-device-width
                 //newLabel3.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " width='100%'>" + jObject["articles"][t]["url"].ToString() + "</a>";
-                newLabel3.Text = "<div style='word-wrap: break-word; max-width:100p% '   ><a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' width='100%' max-width='100%' word-wrap='break-word'>" + jObject["articles"][t]["url"].ToString() + "</a></div>";
+                //newLabel3.Text = "<div style='word-wrap: break-word; max-width:100p% '   ><a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' width='100%' max-width='100%' word-wrap='break-word'>" + jObject["articles"][t]["url"].ToString() + "</a></div>";
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
 
-                Panel1.ContentTemplateContainer.Controls.Add(newLabel3);
+               /////// Panel1.ContentTemplateContainer.Controls.Add(newLabel3);
 
-                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
-                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
+                /////Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
+                //////Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
                 newLabel4.Text = jObject["articles"][t]["publishedAt"].ToString();
 
 
@@ -240,6 +244,14 @@ namespace FreeTime
                 //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
 
                 //ether add more white space or add a div with a color so it looks like a line
+                ////////////////////////////////////////////////
+                ///
+
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("</div>"));
+
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
+                //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
 
             }
 
