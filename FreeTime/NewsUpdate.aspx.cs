@@ -110,7 +110,8 @@ namespace FreeTime
 
 
                 /////newLabel.Text = jObject["articles"][t]["title"].ToString();
-                newLabel.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' width='100%' max-width='100%' word-wrap='break-word'  color='black' >" + "<p text-decoration-line='underline'>" + jObject["articles"][t]["title"].ToString() + "</p>"+"</a>";
+                //newLabel.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' width='100%' max-width='100%' word-wrap='break-word'  color='black' >" + "<p text-decoration-line='underline'>" + jObject["articles"][t]["title"].ToString() + "</p>"+"</a>";
+                newLabel.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' width='100%' max-width='650px' word-wrap='break-word'  color='black' >" + "<p style='text-decoration-line:underline;'>" + jObject["articles"][t]["title"].ToString() + "</p>" + "</a>";
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel);
                 //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
 
@@ -133,8 +134,11 @@ namespace FreeTime
                     weatherImage2.AlternateText = "Image not available ";
                 }
                 //weatherImage2.ImageUrl = jObject["articles"][t]["urlToImage"].ToString();
-                weatherImage2.Width = 300;
-                weatherImage2.Height = 200;
+                //weatherImage2.Width = 300;
+                //weatherImage2.Height = 200;
+                //weatherImage2.CssClass = "picture";
+                //weatherImage2.CssClass = "img-fluid";
+                weatherImage2.CssClass = "img-responsive";
 
 
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
@@ -225,6 +229,13 @@ namespace FreeTime
 
 
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
+                //start of added
+                string divString = "<div style='height:4px;width:100%;background-color:black;'>";
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl(divString));
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("</div>"));
+
+
+                //end of added code
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel5);
 

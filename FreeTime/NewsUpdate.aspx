@@ -60,10 +60,12 @@
     <form id="form1" runat="server">
         <!-https://ianlunn.co.uk/articlej7/hover-css-tutorial-introduction/->
         <!--<div class="container" width="100%" max-width="900px"  style="word-wrap: break-word;" >-->
-        <div class="container" width="100%" max-width="900px" >
+       <!-- <div class="container" width="100%" max-width="900px" >-->
+        <div class="container" width="100%" max-width="650px" >
         <asp:Panel ID="NewsPanel" runat="server"  max-height="400px" width="100%">
             <!--<asp:Label ID="newslabel" runat="server" Text="newslabel"></asp:Label>-->
-            <div  style='float:left; vertical-align: top; width:100%; max-width: 900px;' >
+            <!--<div  style='float:left; vertical-align: top; width:100%; max-width: 900px;' >-->
+            <div  style='float:left; vertical-align: top; width:100%; max-width: 650px;' >
                 <asp:ScriptManager ID="ScriptManager1" runat="server" />
             <!--<asp:Panel ID="Panel3" runat="server" Width="900px">
             </asp:Panel>-->
