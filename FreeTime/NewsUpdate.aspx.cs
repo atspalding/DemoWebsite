@@ -111,8 +111,15 @@ namespace FreeTime
 
                 /////newLabel.Text = jObject["articles"][t]["title"].ToString();
                 //newLabel.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' width='100%' max-width='100%' word-wrap='break-word'  color='black' >" + "<p text-decoration-line='underline'>" + jObject["articles"][t]["title"].ToString() + "</p>"+"</a>";
-                newLabel.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' width='100%' max-width='650px' word-wrap='break-word'  color='black' >" + "<p style='text-decoration-line:underline;'>" + jObject["articles"][t]["title"].ToString() + "</p>" + "</a>";
+                //newLabel.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " class='link hvr-float' width='100%' max-width='650px' word-wrap='break-word'  color='black' >" + "<p style='text-decoration-line:underline;'>" + jObject["articles"][t]["title"].ToString() + "</p>" + "</a>";
+
+                //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<div class='hvr-float' width='100%' max-width='650px' style='background-color:purple" + "; >"));
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<div style='background-color:purple; border-style:solid; border-width:15px; border-color: purple;' " + " >"));
+                newLabel.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " width='100%' max-width='650px' word-wrap='break-word' >" + "<p style='text-decoration-line:underline; color:white; background-color:purple; border-style:solid; border: 15px purple;text-align:center; font-size:20px' class='hvr-float'   >" + jObject["articles"][t]["title"].ToString() + "</p>" + "</a>";
+                
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel);
+
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("</div>"));
                 //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
 
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
