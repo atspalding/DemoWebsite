@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -61,6 +63,7 @@ namespace FreeTime
                 Session["move"] = move;
                 Session["ClearCount"] = ClearCount;
                 Session["ClearTurn"] = ClearTurn;
+                Session["User"] = "user2";
 
                 Label3.Text = "To win you need to find 2 items and drop them in room 1";
 
@@ -274,6 +277,258 @@ namespace FreeTime
                     Label3.Text = "You have won the game";
                     Button1.Visible = false;
                 }
+            }
+
+            else if (textboxString.ToLower() == "save")
+            {
+
+                string UsernameValue= (string)Session["User"];
+                /////////////
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
+                ///
+                //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection2"].ConnectionString);
+                conn.Open();
+                string checkUser = "select * from Players where Username=@userName";
+                SqlCommand comd = new SqlCommand(checkUser, conn);
+                comd.Parameters.AddWithValue("@userName", UsernameValue);
+                SqlDataReader dr = comd.ExecuteReader();
+                if (dr.HasRows)
+                {
+
+                    SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
+                    //SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeDatabase2"].ConnectionString);
+                    //SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection2"].ConnectionString);
+
+
+                    conn2.Open();
+
+                    string insertString = "update Players set Username=@Username, Playername=@PlayerName, Age=@Age, CurrentRoom=@CurrentRoom,HP=@HP  where Username=@userName ";
+                    SqlCommand comd2 = new SqlCommand(insertString, conn2);
+                    comd2.Parameters.AddWithValue("@Username", UsernameValue);
+                    comd2.Parameters.AddWithValue("@PlayerName", mainPlayer.getName());
+                    //comd.Parameters.AddWithValue("@Email", email);
+                    //comd.Parameters.AddWithValue("@Country", country);
+                    //comd.Parameters.AddWithValue("@Password", EncryptPassword.encryptString(password));
+                    //////////////////comd2.Parameters.AddWithValue("@Password", passwordValue);
+                    //comd2.Parameters.AddWithValue("@Password", strBuilder.ToString());
+                    //comd.Parameters.AddWithValue("@Age", Convert.ToInt32(age));
+                    comd2.Parameters.AddWithValue("@Age", mainPlayer.getAge());
+                    comd2.Parameters.AddWithValue("@CurrentRoom", currentRoom.getRoomNumber());
+                    comd2.Parameters.AddWithValue("@HP", mainPlayer.getHP());
+                    comd2.ExecuteNonQuery();
+
+
+
+                    dr.Close();
+                    conn.Close();
+                    // return true;
+                    ////////////////////////////////////
+                    SqlConnection conn4 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
+                    ///
+                    //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection2"].ConnectionString);
+                    conn4.Open();
+                    string checkUser4 = "select * from PlayersInventory where [User]=@userName";
+                    SqlCommand comd4 = new SqlCommand(checkUser4, conn4);
+                    comd4.Parameters.AddWithValue("@userName", UsernameValue);
+                    SqlDataReader dr4 = comd4.ExecuteReader();
+                    if (dr4.HasRows)
+                    {
+
+                        SqlConnection conn5 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
+                        //SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeDatabase2"].ConnectionString);
+                        //SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection2"].ConnectionString);
+
+
+                        conn5.Open();
+
+                        string insertString5 = "delete from PlayersInventory where [User]=@User ";
+                        SqlCommand comd5 = new SqlCommand(insertString5, conn5);
+                        comd5.Parameters.AddWithValue("@User", UsernameValue);
+                        comd5.ExecuteNonQuery();
+
+
+
+                        dr4.Close();
+                        conn4.Close();
+                        // return true;
+
+                    }
+                    else
+                    {
+
+                    }
+
+
+                    /////////////////////
+                    int t = 0;
+                    SqlConnection conn3 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
+                    conn3.Open();
+                    while (t < mainPlayer.InventorySize())
+                    {
+                        //SqlConnection conn3 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
+                        string insertString3 = "insert into PlayersInventory (ItemName, ItemInfo, ItemNumber, InventorySpace, [User]) values (@ItemName,@ItemInfo,@ItemNumber,@InventorySpace,@User)";
+                        SqlCommand comd3 = new SqlCommand(insertString3, conn3);
+                        comd3.Parameters.AddWithValue("@ItemName", mainPlayer.InventoryItem(t).getName());
+                        comd3.Parameters.AddWithValue("@ItemInfo", mainPlayer.InventoryItem(t).getInfo());
+                        comd3.Parameters.AddWithValue("@ItemNumber", mainPlayer.InventoryItem(t).getNumber());
+
+                        //comd3.Parameters.AddWithValue("@ItemName","hi");
+                        //comd3.Parameters.AddWithValue("@ItemInfo","hi");
+                        //comd3.Parameters.AddWithValue("@ItemNumber",1);
+
+
+                        comd3.Parameters.AddWithValue("@InventorySpace", t);
+                        comd3.Parameters.AddWithValue("@User", UsernameValue);
+
+                        //comd3.Parameters.AddWithValue("@InventorySpace",0);
+                        //comd3.Parameters.AddWithValue("@User","user1");
+
+                        //////////////////comd2.Parameters.AddWithValue("@Password", passwordValue);
+                        //comd2.Parameters.AddWithValue("@Password", strBuilder.ToString());
+                        //comd.Parameters.AddWithValue("@Age", Convert.ToInt32(age));
+                        comd3.ExecuteNonQuery();
+                        t++;
+                        //conn3.Close();
+                    }
+
+
+
+
+
+
+
+
+                    conn3.Close();
+
+
+
+
+                    ///////////////////////////////////
+
+
+                }
+                else
+                {
+
+                    dr.Close();
+                    conn.Close();
+
+                    SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
+                    //SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeDatabase2"].ConnectionString);
+                    //SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection2"].ConnectionString);
+
+
+                    conn2.Open();
+
+
+
+
+
+                    //////////////////////
+
+                
+
+
+
+
+
+
+                    //////////////////////////
+                    //string insertString = "insert into Customer (UserName, Name, Password,Age) values (@userName,@Name,@Password,@Age,)";
+                    string insertString = "insert into Players (Username, PlayerName, Age,CurrentRoom,HP) values (@UserName,@PlayerName,@Age,@CurrentRoom,@HP)";
+                    SqlCommand comd2 = new SqlCommand(insertString, conn2);
+                    comd2.Parameters.AddWithValue("@Username", UsernameValue);
+                    comd2.Parameters.AddWithValue("@PlayerName", mainPlayer.getName());
+                    //comd.Parameters.AddWithValue("@Email", email);
+                    //comd.Parameters.AddWithValue("@Country", country);
+                    //comd.Parameters.AddWithValue("@Password", EncryptPassword.encryptString(password));
+                    //////////////////comd2.Parameters.AddWithValue("@Password", passwordValue);
+                    //comd2.Parameters.AddWithValue("@Password", strBuilder.ToString());
+                    //comd.Parameters.AddWithValue("@Age", Convert.ToInt32(age));
+                    comd2.Parameters.AddWithValue("@Age", mainPlayer.getAge());
+                    comd2.Parameters.AddWithValue("@CurrentRoom", currentRoom.getRoomNumber());
+                    comd2.Parameters.AddWithValue("@HP", mainPlayer.getHP());
+                    comd2.ExecuteNonQuery();
+                    conn2.Close();
+                    //////////////
+
+                    SqlConnection conn4 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
+                    ///
+                    //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection2"].ConnectionString);
+                    conn4.Open();
+                    string checkUser4 = "select * from PlayersInventory where [User]=@userName";
+                    SqlCommand comd4 = new SqlCommand(checkUser4, conn4);
+                    comd4.Parameters.AddWithValue("@userName", UsernameValue);
+                    SqlDataReader dr4 = comd4.ExecuteReader();
+                    if (dr4.HasRows)
+                    {
+
+                        SqlConnection conn5 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
+                        //SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeDatabase2"].ConnectionString);
+                        //SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection2"].ConnectionString);
+
+
+                        conn5.Open();
+
+                        string insertString5 = "delete from PlayersInventory where [User]=@User ";
+                        SqlCommand comd5 = new SqlCommand(insertString5, conn5);
+                        comd5.Parameters.AddWithValue("@User", UsernameValue);
+                        comd5.ExecuteNonQuery();
+
+
+
+                        dr4.Close();
+                        conn4.Close();
+                        // return true;
+
+                    }
+                    else
+                    {
+
+                    }
+
+
+                    /////////////////////
+                    int t = 0;
+                    SqlConnection conn7 = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
+                    conn7.Open();
+                    while (t< mainPlayer.InventorySize())
+                    {
+                        string insertString2 = "insert into PlayersInventory (ItemName, ItemInfo, ItemNumber,InventorySpace,[User]) values (@ItemName,@ItemInfo,@ItemNumber,@InventorySpace,@User)";
+                        SqlCommand comd7 = new SqlCommand(insertString2, conn7);
+                        comd7.Parameters.AddWithValue("@ItemName", mainPlayer.InventoryItem(t).getName());
+                        comd7.Parameters.AddWithValue("@ItemInfo", mainPlayer.InventoryItem(t).getInfo());
+                        comd7.Parameters.AddWithValue("@ItemNumber", mainPlayer.InventoryItem(t).getNumber());
+                        comd7.Parameters.AddWithValue("@InventorySpace", t);
+                        comd7.Parameters.AddWithValue("@User",UsernameValue);
+                        //////////////////comd2.Parameters.AddWithValue("@Password", passwordValue);
+                        //comd2.Parameters.AddWithValue("@Password", strBuilder.ToString());
+                        //comd.Parameters.AddWithValue("@Age", Convert.ToInt32(age));
+                        comd7.ExecuteNonQuery();
+                        t++;
+                    }
+
+
+
+
+
+
+
+
+                    conn7.Close();
+                    
+                    //Response.AddHeader("refresh", "4; url=Login.aspx");
+                    
+
+                }
+                //dr.Close();
+                //conn.Close();
+
+                //return false;
+
+
+
+
             }
             else
             {

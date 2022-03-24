@@ -16,7 +16,7 @@ namespace FreeTime
 
 
 
-        public Player (String name, int age)
+        public Player(String name, int age)
         {
             this.name = name;
             this.age = age;
@@ -55,7 +55,7 @@ namespace FreeTime
         {
             String itemString = "";
             int t = 0;
-            while(t < Inventory.Count)
+            while (t < Inventory.Count)
             {
                 itemString = itemString + Inventory.ElementAt(t).getName();
                 //itemString = itemString + ",";
@@ -67,12 +67,12 @@ namespace FreeTime
 
             }
 
-           // Console.WriteLine("The player inventory is ");
-            return "The player inventory is "+itemString;
+            // Console.WriteLine("The player inventory is ");
+            return "The player inventory is " + itemString;
         }
         public Items dropItems()
         {
-            if(this.Inventory.Count > 0)
+            if (this.Inventory.Count > 0)
             {
                 Items tempItems = this.Inventory[0];
                 Console.WriteLine("You have droped" + tempItems.getName());
@@ -84,6 +84,14 @@ namespace FreeTime
 
                 return null;
             }
+        }
+        public int InventorySize()
+        {
+            return this.Inventory.Count;
+        }
+        public Items InventoryItem(int input)
+        {
+            return this.Inventory[input];
         }
     }
 }

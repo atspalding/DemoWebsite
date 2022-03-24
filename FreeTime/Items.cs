@@ -23,5 +23,14 @@ namespace FreeTime
         {
             return this.name.ToString();
         }
+        public String getInfo()
+        {
+            return this.info.ToString();
+
+        }
+        public int getNumber()
+        {
+            return this.number;
+        }
     }
 }
