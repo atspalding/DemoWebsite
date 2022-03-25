@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="FreeTimeWebsite.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Signup.aspx.cs" Inherits="FreeTimeWebsite.Signup" %>
 
 <!DOCTYPE html>
 
@@ -6,13 +6,13 @@
 <head runat="server">
     
 
-     <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-    <title>Login</title>
-    <link rel="stylesheet" href="css/Login.css" />
+    <title>Sign up</title>
+    <link rel="stylesheet" href="css/AdventureGame.css" />
     <link href="css/hover.css" rel="stylesheet" media="all"/>
     <link rel="stylesheet" href="css/frontStyle.css" />
 
@@ -33,8 +33,10 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 
+
+
 </head>
-<body class="has-drawer container"  >
+<body  class="has-drawer container"  >
 
     <div id="nav-placeholder">
 
@@ -51,22 +53,24 @@
 
 
     <form id="form1" runat="server">
-        <div>
-        </div>
+        
+        
         <asp:Label ID="Label1" runat="server" Text="Username"></asp:Label>
         <p>
-            <asp:TextBox ID="UsernameTextBox" runat="server" ></asp:TextBox>
+            <asp:TextBox ID="UsernameTextBox" runat="server"></asp:TextBox>
         </p>
-        <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
+        <asp:Label ID="label2" runat="server" Text="Password"></asp:Label>
         <p>
-            <asp:TextBox ID="PasswordTextBox" runat="server" ></asp:TextBox>
+            <asp:TextBox ID="PasswordTextBox" runat="server"></asp:TextBox>
         </p>
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
+        <asp:Button ID="Button1" runat="server" Text="Signup" OnClick="Button1_Click" />
+
+    
         <p>
-            <asp:Label ID="LoginLabel" runat="server"></asp:Label>
+            <asp:Label ID="WarningLabel" runat="server"></asp:Label>
         </p>
-        <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/AdventureGame.aspx" OnAuthenticate="Login1_Authenticate" Visible="False" VisibleWhenLoggedIn="False">
-        </asp:Login>
+
+    
     </form>
 </body>
 </html>

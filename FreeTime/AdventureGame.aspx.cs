@@ -21,6 +21,14 @@ namespace FreeTime
         {
 
 
+            if (Session["User"] == null)
+            {
+
+                Response.Redirect("Login.aspx");
+
+            }
+
+
             if (!IsPostBack)
 
             {
@@ -63,7 +71,7 @@ namespace FreeTime
                 Session["move"] = move;
                 Session["ClearCount"] = ClearCount;
                 Session["ClearTurn"] = ClearTurn;
-                Session["User"] = "user2";
+                //Session["User"] = "user2";
 
                 Label3.Text = "To win you need to find 2 items and drop them in room 1";
 

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FreeTimeWebsite
+namespace FreeTime
 {
 
 
@@ -24,13 +24,13 @@ namespace FreeTimeWebsite
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Label1 control.
+        /// UsernameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label UsernameLabel;
 
         /// <summary>
         /// UsernameTextBox control.
@@ -42,13 +42,13 @@ namespace FreeTimeWebsite
         protected global::System.Web.UI.WebControls.TextBox UsernameTextBox;
 
         /// <summary>
-        /// Label2 control.
+        /// PasswordLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label PasswordLabel;
 
         /// <summary>
         /// PasswordTextBox control.
@@ -60,13 +60,13 @@ namespace FreeTimeWebsite
         protected global::System.Web.UI.WebControls.TextBox PasswordTextBox;
 
         /// <summary>
-        /// Button1 control.
+        /// loginButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button loginButton;
 
         /// <summary>
         /// LoginLabel control.
@@ -78,12 +78,12 @@ namespace FreeTimeWebsite
         protected global::System.Web.UI.WebControls.Label LoginLabel;
 
         /// <summary>
-        /// Login1 control.
+        /// SignupButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Login Login1;
+        protected global::System.Web.UI.WebControls.Button SignupButton;
     }
 }

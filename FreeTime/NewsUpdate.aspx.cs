@@ -21,6 +21,14 @@ namespace FreeTime
         {
 
 
+            if (Session["User"] == null)
+            {
+                
+                Response.Redirect("Login.aspx");
+
+            }
+
+
             string newsKeys = System.Configuration.ConfigurationManager.AppSettings["newsKey"];
             var url = "https://newsapi.org/v2/top-headlines?" +
           "sources=usa-today&" +

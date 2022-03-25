@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FreeTime</RootNamespace>
-    <AssemblyName>FreeTime</AssemblyName>
+    <RootNamespace>FreeTimeWebsite</RootNamespace>
+    <AssemblyName>FreeTimeWebsite</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -209,6 +209,7 @@
     <Content Include="css\BestSellingBooksStyle.css" />
     <Content Include="css\bootstrap-drawer.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\Login.css" />
     <Content Include="css\LogoLayout.css" />
     <Content Include="css\databaseFormStyle.css" />
     <Content Include="css\FileUpload.css" />
@@ -586,9 +587,11 @@
     <Content Include="js\Project1_font_lang.js" />
     <Content Include="js\projectJS.js" />
     <Content Include="js\slider\jquery.liquid-slider.min.js" />
+    <Content Include="Login.aspx" />
     <Content Include="NewsSite.aspx" />
     <Content Include="NewsUpdate.aspx" />
     <Content Include="ProgressBar.aspx" />
+    <Content Include="Signup.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -630,7 +633,7 @@
     <None Include="Properties\PublishProfiles\FreeTime20220113083331 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FreeTime20220113083331 - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Login.aspx" />
+    <Content Include="Login2.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -752,6 +755,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Login2.aspx.cs">
+      <DependentUpon>Login2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login2.aspx.designer.cs">
+      <DependentUpon>Login2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Movement.cs" />
     <Compile Include="NewsSite.aspx.cs">
       <DependentUpon>NewsSite.aspx</DependentUpon>
@@ -783,6 +793,13 @@
     </Compile>
     <Compile Include="SecondPage.aspx.designer.cs">
       <DependentUpon>SecondPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signup.aspx.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signup.aspx.designer.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

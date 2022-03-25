@@ -11,7 +11,7 @@ namespace FreeTimeWebsite
 {
 
 
-    public partial class Login
+    public partial class Signup
     {
 
         /// <summary>
@@ -42,13 +42,13 @@ namespace FreeTimeWebsite
         protected global::System.Web.UI.WebControls.TextBox UsernameTextBox;
 
         /// <summary>
-        /// Label2 control.
+        /// label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label label2;
 
         /// <summary>
         /// PasswordTextBox control.
@@ -69,21 +69,12 @@ namespace FreeTimeWebsite
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// LoginLabel control.
+        /// WarningLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LoginLabel;
-
-        /// <summary>
-        /// Login1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Login Login1;
+        protected global::System.Web.UI.WebControls.Label WarningLabel;
     }
 }

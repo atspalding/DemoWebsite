@@ -165,8 +165,13 @@
                 
             </tr>
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style3"><strong>Save</strong></td>
+                <td><strong>Save the game</strong></td>
+                
+            </tr>
+            <tr>
+                <td class="auto-style3"><strong>load</strong></td>
+                <td><strong>Load the game</strong></td>
                 
             </tr>
     </table>
