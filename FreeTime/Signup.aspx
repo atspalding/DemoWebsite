@@ -52,25 +52,50 @@
     </script>
 
 
-    <form id="form1" runat="server">
+    <form id="form1" runat="server"  class="form-horizontal">
         
-        
+        <div style="width:100%; max-width:200px;" class="form-group"  >
         <asp:Label ID="Label1" runat="server" Text="Username"></asp:Label>
-        <p>
-            <asp:TextBox ID="UsernameTextBox" runat="server"></asp:TextBox>
-        </p>
+
+        <asp:TextBox ID="UsernameTextBox" runat="server" CssClass="form-control"  ></asp:TextBox>
+        
+        
         <asp:Label ID="label2" runat="server" Text="Password"></asp:Label>
-        <p>
-            <asp:TextBox ID="PasswordTextBox" runat="server"></asp:TextBox>
-        </p>
+        
+        <asp:TextBox ID="PasswordTextBox" runat="server" TextMode="Password" CssClass="form-control" ></asp:TextBox>
+
+            
+        <asp:Label ID="label3" runat="server" Text="Conform Password"></asp:Label>
+        
+        <asp:TextBox ID="ConfirmPasswordTextbox" runat="server" TextMode="Password" CssClass="form-control" ></asp:TextBox>
+
+        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="PasswordTextBox" ControlToValidate="ConfirmPasswordTextBox" ErrorMessage="Both passwords must be the same"></asp:CompareValidator>
+        
+        
+        <div style="width:100%;">
+        <asp:RequiredFieldValidator forcolor="red" ID="RequiredFieldValidator5" runat="server" ControlToValidate="PasswordTextBox" ErrorMessage="Password required"></asp:RequiredFieldValidator>
+        </div>
+        <div style="width:100%;">
+        
+        &nbsp;
+        <asp:RegularExpressionValidator forcolor="red" ID="RegularExpressionValidator2" runat="server" ControlToValidate="PasswordTextBox" ErrorMessage=" Use at least 6 characters without special character" ValidationExpression="[a-zA-Z0-9]{6}"></asp:RegularExpressionValidator>
+        </div>
+        
+        </div>
+        <div class="form-group">
         <asp:Button ID="Button1" runat="server" Text="Signup" OnClick="Button1_Click" />
-
+        </div>
     
-        <p>
             <asp:Label ID="WarningLabel" runat="server"></asp:Label>
-        </p>
-
-    
+        
     </form>
+
+     <script src="js/drawer.js"></script>
+    <script>
+        $("#drawerMenu").drawer({ toggle: false });
+
+    </script>
+
+
 </body>
 </html>

@@ -68,5 +68,12 @@
         <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/AdventureGame.aspx" OnAuthenticate="Login1_Authenticate" Visible="False" VisibleWhenLoggedIn="False">
         </asp:Login>
     </form>
+
+     <script src="js/drawer.js"></script>
+    <script>
+        $("#drawerMenu").drawer({ toggle: false });
+
+    </script>
+
 </body>
 </html>

@@ -54,9 +54,7 @@
 <body  class="has-drawer container" >
 
     <!--<iframe src="Banner.html"  scrolling="no"style="width: 100%; height: 100%; border: 0"></iframe>-->
-    <?php
-        include('Banner.php');
-        ?>
+    
 
     <div id="nav-placeholder">
 
