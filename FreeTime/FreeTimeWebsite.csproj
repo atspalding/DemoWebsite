@@ -592,6 +592,7 @@
     <Content Include="NewsUpdate.aspx" />
     <Content Include="ProgressBar.aspx" />
     <Content Include="Signup.aspx" />
+    <Content Include="SitesUsed.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -814,6 +815,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SitesUsed.aspx.cs">
+      <DependentUpon>SitesUsed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SitesUsed.aspx.designer.cs">
+      <DependentUpon>SitesUsed.aspx</DependentUpon>
     </Compile>
     <Compile Include="SortingPage.aspx.cs">
       <DependentUpon>SortingPage.aspx</DependentUpon>
