@@ -19,6 +19,14 @@ namespace FreeTime
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+            if (Session["User"] == null)
+            {
+
+                Response.Redirect("Login.aspx");
+
+            }
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)

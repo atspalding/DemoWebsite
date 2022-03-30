@@ -9,9 +9,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace FreeTime
+namespace FreeTimeWebsite
 {
-    public partial class SecondPage : System.Web.UI.Page
+    public partial class Signup : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,19 +20,14 @@ namespace FreeTime
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-           
-            Response.AddHeader("refresh", "1; url=FirstForm.aspx");
-             //Server.Transfer("FirstForm.aspx", true);
-        }
 
-        protected void SubmitButton_Click(object sender, EventArgs e)
-        {
-            var UsernameValue = UserTextBox.Text;
-            var ageValue = Convert.ToInt32(DropDownListAge.SelectedValue);
-            var jobValue = TextBoxJob.Text;
+
+            var UsernameValue = UsernameTextBox.Text;
+            //var ageValue = Convert.ToInt32(DropDownListAge.SelectedValue);
+            //var jobValue = TextBoxJob.Text;
             var passwordValue = PasswordTextBox.Text;
-            var nameValue = NameTextBox.Text;
-            var emailValue = TextBoxEmail.Text;
+            //var nameValue = NameTextBox.Text;
+            //var emailValue = TextBoxEmail.Text;
 
 
 
@@ -87,55 +82,29 @@ namespace FreeTime
 
                 //////////////////////////
                 //string insertString = "insert into Customer (UserName, Name, Password,Age) values (@userName,@Name,@Password,@Age,)";
-                string insertString = "insert into Users (Username, Name, Age,job,Password, Email) values (@UserName,@Name,@Age,@Job,@Password,@Email)";
+                string insertString = "insert into Users (Username,Password) values (@UserName,@Password)";
                 SqlCommand comd2 = new SqlCommand(insertString, conn2);
                 comd2.Parameters.AddWithValue("@Username", UsernameValue);
-                comd2.Parameters.AddWithValue("@Name", nameValue);
+                //comd2.Parameters.AddWithValue("@Name", nameValue);
                 //comd.Parameters.AddWithValue("@Email", email);
                 //comd.Parameters.AddWithValue("@Country", country);
                 //comd.Parameters.AddWithValue("@Password", EncryptPassword.encryptString(password));
                 //////////////////comd2.Parameters.AddWithValue("@Password", passwordValue);
                 comd2.Parameters.AddWithValue("@Password", strBuilder.ToString());
                 //comd.Parameters.AddWithValue("@Age", Convert.ToInt32(age));
-                comd2.Parameters.AddWithValue("@Age", ageValue);
-                comd2.Parameters.AddWithValue("@Job", jobValue);
-                comd2.Parameters.AddWithValue("@Email", emailValue);
+                //comd2.Parameters.AddWithValue("@Age", ageValue);
+                //comd2.Parameters.AddWithValue("@Job", jobValue);
+                //comd2.Parameters.AddWithValue("@Email", emailValue);
                 comd2.ExecuteNonQuery();
                 conn2.Close();
                 WarningLabel.Text = "user has been created";
                 //Response.AddHeader("refresh", "4; url=Login.aspx");
-                Server.Transfer("Login.aspx", true);
+                //Server.Transfer("Login.aspx", true);
+                Response.Redirect("Login.aspx");
 
             }
-            //dr.Close();
-            //conn.Close();
-
-            //return false;
 
 
-
-
-
-            /////////////
-
-            ////////SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
-
-
-            ///////conn.Open();
-            //string insertString = "insert into Customer (UserName, Name, Password,Age) values (@userName,@Name,@Password,@Age,)";
-            ////////string insertString = "insert into Users (UserName, Name, Age,job,Password) values (@UserName,@Name,@Age,@Job,@Password)";
-            ///////SqlCommand comd = new SqlCommand(insertString, conn);
-            ///////comd.Parameters.AddWithValue("@UserName", UsernameValue);
-           ///////// comd.Parameters.AddWithValue("@Name", nameValue);
-            //comd.Parameters.AddWithValue("@Email", email);
-            //comd.Parameters.AddWithValue("@Country", country);
-            //comd.Parameters.AddWithValue("@Password", EncryptPassword.encryptString(password));
-            /////////comd.Parameters.AddWithValue("@Password", passwordValue);
-            //comd.Parameters.AddWithValue("@Age", Convert.ToInt32(age));
-          /// // comd.Parameters.AddWithValue("@Age", ageValue);
-           ////// comd.Parameters.AddWithValue("@Job", jobValue);
-           /////// comd.ExecuteNonQuery();
-            ///////conn.Close();
         }
     }
 }

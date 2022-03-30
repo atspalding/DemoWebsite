@@ -129,7 +129,11 @@ namespace FreeTime
         {
             return this.roomName;
         }
+        public Items ItemAtSpot(int input)
+        {
 
+            return this.ItemList[input];
+        }
 
     }
 }

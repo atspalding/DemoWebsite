@@ -54,9 +54,7 @@
 <body  class="has-drawer container" >
 
     <!--<iframe src="Banner.html"  scrolling="no"style="width: 100%; height: 100%; border: 0"></iframe>-->
-    <?php
-        include('Banner.php');
-        ?>
+    
 
     <div id="nav-placeholder">
 
@@ -165,8 +163,13 @@
                 
             </tr>
             <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style3"><strong>Save</strong></td>
+                <td><strong>Save the game</strong></td>
+                
+            </tr>
+            <tr>
+                <td class="auto-style3"><strong>load</strong></td>
+                <td><strong>Load the game</strong></td>
                 
             </tr>
     </table>

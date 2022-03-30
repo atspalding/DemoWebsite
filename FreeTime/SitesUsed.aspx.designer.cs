@@ -7,11 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FreeTime
+
+namespace FreeTimeWebsite
 {
-
-
-    public partial class WebForm2
+    public partial class SitesUsed
     {
 
         /// <summary>
