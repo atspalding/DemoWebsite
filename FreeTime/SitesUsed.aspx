@@ -22,7 +22,7 @@
      <link rel="stylesheet" href="css/liquid-slider.css" />
     <link rel="stylesheet" href="css/frontStyle.css" />
     <link rel="stylesheet" href="css/LogoLayout.css" />
-    <link rel="stylesheet" href="css/NewsSite.css" />
+    <link rel="stylesheet" href="css/SitesUsed.css" />
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
