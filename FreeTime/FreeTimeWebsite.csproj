@@ -680,6 +680,8 @@
     <Compile Include="AjaxPratice.aspx.designer.cs">
       <DependentUpon>AjaxPratice.aspx</DependentUpon>
     </Compile>
+    <Content Include="App_Code\Userutil.cs" />
+    <Content Include="App_Code\EncryptPassword.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
