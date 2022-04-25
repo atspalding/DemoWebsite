@@ -8,6 +8,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FreeTimeWebsite.App_Code;
 
 namespace FreeTimeWebsite
 {
@@ -29,8 +30,30 @@ namespace FreeTimeWebsite
             //var nameValue = NameTextBox.Text;
             //var emailValue = TextBoxEmail.Text;
 
+            Userutil myUser = new Userutil(UsernameValue,passwordValue);
 
+            if (!myUser.checkUserExist())
+            {
+                myUser.insertUser();
+                //LabelWelcome.Text = "You have registered with bsu pizza website successfully";
+                //LabelWelcome.ForeColor = Color.Red;
+                //Response.AddHeader("refresh", "4; url=login.aspx");
 
+                WarningLabel.Text = "user has been created";
+                //Response.AddHeader("refresh", "4; url=Login.aspx");
+                //Server.Transfer("Login.aspx", true);
+                Response.Redirect("Login.aspx");
+
+            }
+            else
+            {
+                WarningLabel.Text = "That user already exist try again";
+                // LabelWelcome.Text = "User already exist";
+                // LabelWelcome.ForeColor = Color.Red;
+                // Response.AddHeader("refresh", "4; url=Registration.aspx");
+            }
+
+            /*
             /////////////
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
             ///
@@ -103,7 +126,7 @@ namespace FreeTimeWebsite
                 Response.Redirect("Login.aspx");
 
             }
-
+            */
 
         }
     }
