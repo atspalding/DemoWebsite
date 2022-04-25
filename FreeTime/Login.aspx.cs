@@ -34,76 +34,18 @@ namespace FreeTimeWebsite
             if (myUser.checkPassword())
             {
                 Session["user"] = UsernameTextBox.Text;
-                //LabelMessage.Enabled = true;
-                //LabelMessage.Visible = true;
-                //LabelMessage.Text = "Welcome back!";
-                //LabelMessage.ForeColor = Color.Red;
-                // Response.AddHeader("refresh", "4; url=Home.aspx");
+                
                 LoginLabel.Text = "user in database";
                 Response.Redirect("AdventureGame.aspx");
             }
             else
             {
-                //LabelMessage.Enabled = true;
-                //LabelMessage.Visible = true;
-               // LabelMessage.Text = "username or password is not correct !";
+               
                 LoginLabel.Text = "username or password is not correct !";
-                //LabelMessage.ForeColor = Color.Red;
-                //LinkButtonForgotPassword.Enabled = true;
-                //LinkButtonForgotPassword.Visible = true;
+                
             }
 
 
-            /*
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
-            //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeDatabase2"].ConnectionString);
-            //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection2"].ConnectionString);
-            conn.Open();
-            string checkUser = "select * from Users where Username=@userName";
-            SqlCommand comd = new SqlCommand(checkUser, conn);
-
-            MD5 md5 = new MD5CryptoServiceProvider();
-            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(passwordValue));
-            byte[] result = md5.Hash;
-            StringBuilder strBuilder = new StringBuilder();
-            for (int i = 0; i < result.Length; i++)
-            {
-                strBuilder.Append(result[i].ToString("x2"));
-            }
-
-
-            comd.Parameters.AddWithValue("@userName", UsernameValue);
-            SqlDataReader dr = comd.ExecuteReader();
-            if (dr.HasRows)
-            {
-                //
-                dr.Read();
-                if (dr["Password"].ToString().Equals(strBuilder.ToString()))
-                {
-                    dr.Close();
-                    conn.Close();
-                    LoginLabel.Text = "user in database";
-                    Session["User"] = UsernameValue;
-                    //Response.AddHeader("refresh", "1; url=AdventureGame.aspx");
-                 //   Server.Transfer("AdventureGame.aspx", true);
-                    Response.Redirect("AdventureGame.aspx");
-                }
-                else
-                {
-                    LoginLabel.Text = "Wrong password or username";
-                }
-            }
-            else
-            {
-                LoginLabel.Text = "Wrong password or username";
-            }
-            dr.Close();
-            conn.Close();
-
-
-            /////////////////////
-            ///
-            */
         }
 
         protected void Button2_Click(object sender, EventArgs e)
