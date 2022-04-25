@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FreeTimeWebsite.App_Code;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -28,7 +29,32 @@ namespace FreeTimeWebsite
             var passwordValue = PasswordTextBox.Text;
 
 
+            Userutil myUser = new Userutil(UsernameValue, passwordValue);
 
+            if (myUser.checkPassword())
+            {
+                Session["user"] = UsernameTextBox.Text;
+                //LabelMessage.Enabled = true;
+                //LabelMessage.Visible = true;
+                //LabelMessage.Text = "Welcome back!";
+                //LabelMessage.ForeColor = Color.Red;
+                // Response.AddHeader("refresh", "4; url=Home.aspx");
+                LoginLabel.Text = "user in database";
+                Response.Redirect("AdventureGame.aspx");
+            }
+            else
+            {
+                //LabelMessage.Enabled = true;
+                //LabelMessage.Visible = true;
+               // LabelMessage.Text = "username or password is not correct !";
+                LoginLabel.Text = "username or password is not correct !";
+                //LabelMessage.ForeColor = Color.Red;
+                //LinkButtonForgotPassword.Enabled = true;
+                //LinkButtonForgotPassword.Visible = true;
+            }
+
+
+            /*
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection"].ConnectionString);
             //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeDatabase2"].ConnectionString);
             //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["freeTimeConnection2"].ConnectionString);
@@ -75,7 +101,9 @@ namespace FreeTimeWebsite
             conn.Close();
 
 
-
+            /////////////////////
+            ///
+            */
         }
 
         protected void Button2_Click(object sender, EventArgs e)
