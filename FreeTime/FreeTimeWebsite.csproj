@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="App_Code.4wy4mhus">
+      <HintPath>..\..\..\..\AppData\Local\Temp\Temporary ASP.NET Files\root\45465250\_shadow\6f1c4256\20204\App_Code.4wy4mhus.dll</HintPath>
+    </Reference>
     <Reference Include="Dropbox.Api, Version=4.0.0.0, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
       <HintPath>..\packages\Dropbox.Api.4.9.3\lib\net45\Dropbox.Api.dll</HintPath>
     </Reference>
@@ -680,6 +683,8 @@
     <Compile Include="AjaxPratice.aspx.designer.cs">
       <DependentUpon>AjaxPratice.aspx</DependentUpon>
     </Compile>
+    <Content Include="App_Code\Userutil.cs" />
+    <Content Include="App_Code\EncryptPassword.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
