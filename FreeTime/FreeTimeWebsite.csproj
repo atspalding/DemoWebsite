@@ -200,6 +200,7 @@
     <Content Include="App_Data\freeTimeDatabase_log.ldf">
       <DependentUpon>freeTimeDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Banner2.html" />
     <Content Include="BestSellingBooks.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -685,6 +686,7 @@
     </Compile>
     <Content Include="App_Code\Userutil.cs" />
     <Content Include="App_Code\EncryptPassword.cs" />
+    <Content Include="App_Code\Gameutil.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>

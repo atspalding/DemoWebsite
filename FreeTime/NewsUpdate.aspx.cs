@@ -30,9 +30,13 @@ namespace FreeTime
 
 
             string newsKeys = System.Configuration.ConfigurationManager.AppSettings["newsKey"];
-            var url = "https://newsapi.org/v2/top-headlines?" +
+            var url ="https://newsapi.org/v2/top-headlines?sources=usa-today&apiKey="+newsKeys;
+            //string url = "https://newsapi.org/v2/top-headlines?sources=usa-today&apiKey=" + newsKeys;
+
+            string url2 = "https://newsapi.org/v2/top-headlines?" +
           "sources=usa-today&" +
           newsKeys;
+
             string[] newsarray = new string[50];
 
             //Temp added 
@@ -45,7 +49,10 @@ namespace FreeTime
      
 
             var json = client.DownloadString(url);
-            var news = JsonConvert.DeserializeObject<JSONEWS>(json);
+            // var json = new WebClient().DownloadString(url);
+            // var json2 = client.DownloadFile(url);
+            
+            //var news = JsonConvert.DeserializeObject<JSONEWS>(json);
             JObject jObject = JObject.Parse(json);
 
 
