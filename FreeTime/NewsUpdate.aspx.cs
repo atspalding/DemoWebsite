@@ -30,12 +30,13 @@ namespace FreeTime
 
 
             string newsKeys = System.Configuration.ConfigurationManager.AppSettings["newsKey"];
-            var url ="https://newsapi.org/v2/top-headlines?sources=usa-today&apiKey="+newsKeys;
+            //var url ="https://newsapi.org/v2/top-headlines?sources=usa-today&apiKey="+newsKeys;
             //string url = "https://newsapi.org/v2/top-headlines?sources=usa-today&apiKey=" + newsKeys;
+            var url = "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=" +newsKeys;
 
-            string url2 = "https://newsapi.org/v2/top-headlines?" +
-          "sources=usa-today&" +
-          newsKeys;
+            //string url2 = "https://newsapi.org/v2/top-headlines?" +
+         // "sources=usa-today&" +
+         // newsKeys;
 
             string[] newsarray = new string[50];
 
@@ -59,7 +60,8 @@ namespace FreeTime
 
            
             Label newLabel8 = new Label();
-            newLabel8.Text = " Number of articles " + jObject["articles"].Count().ToString();
+            //newLabel8.Text = " Number of articles " + jObject["articles"].Count().ToString();
+            newLabel8.Text = " Number of articles " + jObject["num_results"].ToString();
 
             Panel1.ContentTemplateContainer.Controls.Add(newLabel8);
 
@@ -76,7 +78,8 @@ namespace FreeTime
             Label newLabel6 = new Label();
 
             int t = 0;
-            while (t < jObject["articles"].Count())
+            //while (t < jObject["articles"].Count())
+            while (t < Convert.ToInt64(jObject["num_results"]))
             {
 
       
@@ -87,10 +90,11 @@ namespace FreeTime
                 Label newLabel3 = new Label();
                 Label newLabel4 = new Label();
                 Label newLabel5 = new Label();
+                Label newLabel9 = new Label();
 
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<div style='background-color:purple; border-style:solid; border-width:15px; border-color: purple;' " + " >"));
-                newLabel.Text = "<a href=" + jObject["articles"][t]["url"].ToString() + " width='100%' max-width='650px' word-wrap='break-word' >" + "<p style='text-decoration-line:underline; color:white; background-color:purple; border-style:solid; border: 15px purple;text-align:center; font-size:20px' class='hvr-float'   >" + jObject["articles"][t]["title"].ToString() + "</p>" + "</a>";
+                newLabel.Text = "<a href=" + jObject["results"][t]["url"].ToString() + " width='100%' max-width='650px' word-wrap='break-word' >" + "<p style='text-decoration-line:underline; color:white; background-color:purple; border-style:solid; border: 15px purple;text-align:center; font-size:20px' class='hvr-float'   >" + jObject["results"][t]["title"].ToString() + "</p>" + "</a>";
                 
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel);
 
@@ -98,12 +102,23 @@ namespace FreeTime
 
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
 
+                /////////////////////
+                newLabel9.Text = jObject["results"][t]["byline"].ToString();
+
+                Panel1.ContentTemplateContainer.Controls.Add(newLabel9);
+
+                //Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("</div>"));
+
+                Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
+
+                //////////////////
                 Image weatherImage2 = new Image();
-                if (jObject["articles"][t]["urlToImage"].ToString() != "")
+                if (jObject["results"][t]["multimedia"][0]["url"].ToString() != "")
                 {
 
-                    weatherImage2.ImageUrl = jObject["articles"][t]["urlToImage"].ToString();
-                    weatherImage2.AlternateText = "Image not available ";
+                    weatherImage2.ImageUrl = jObject["results"][t]["multimedia"][0]["url"].ToString();
+                    //weatherImage2.AlternateText = "Image not available ";
+                    weatherImage2.AlternateText = jObject["results"][t]["multimedia"][0]["caption"].ToString();
 
                 }
                 else
@@ -123,8 +138,8 @@ namespace FreeTime
 
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
 
-                newLabel2.Text =jObject["articles"][t]["description"].ToString();
-              
+                //newLabel2.Text =jObject["results"][t]["title"].ToString();
+                newLabel2.Text= jObject["results"][t]["multimedia"][0]["copyright"].ToString();
 
                 int listOpen2 = Regex.Matches(newLabel2.Text, "<li>").Count;
                 int listClose2 = Regex.Matches(newLabel2.Text, "</li>").Count;
@@ -160,12 +175,14 @@ namespace FreeTime
             
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
 
-                newLabel4.Text = jObject["articles"][t]["publishedAt"].ToString();
+                newLabel4.Text = "Published date <br/>"+jObject["results"][t]["published_date"].ToString();
 
 
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel4);
 
-                newLabel5.Text = jObject["articles"][t]["content"].ToString();
+                newLabel5.Text = jObject["results"][t]["abstract"].ToString();
+                
+                //newLabel5.Text = jObject["results"][t]["multimedia"][0]["copyright"].ToString();
 
 
 
@@ -202,7 +219,8 @@ namespace FreeTime
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel5);
 
-                Uri uriLink = new Uri(jObject["articles"][t]["url"].ToString());
+                // Uri uriLink = new Uri(jObject["articles"][t]["url"].ToString());
+                //Uri uriLink = new Uri(jObject["results"][t]["url"].ToString());
 
 
 
@@ -219,7 +237,7 @@ namespace FreeTime
             }
 
             Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br/>"));
-            newLabel6.Text = "powered by newsapi.org";
+            newLabel6.Text = "powered by New York Times api";
                 Panel1.ContentTemplateContainer.Controls.Add(newLabel6);
 
                 Panel1.ContentTemplateContainer.Controls.Add(new LiteralControl("<br />"));
