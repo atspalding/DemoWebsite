@@ -38,7 +38,8 @@ namespace FreeTime
                 var zipCode = TextBox1.Text.ToString();
                 Panel1.ContentTemplateContainer.Controls.Clear();
                 //Response.Write(zipCode);
-                var url = "https://samples.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=" + weatherKey2;
+               
+                var url = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=" + weatherKey2;
                 //var url = "https://samples.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&units=imperial";
                 //https://openweathermap.org/current#data
                 var json = new WebClient().DownloadString(url);
